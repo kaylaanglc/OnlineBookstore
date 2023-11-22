@@ -10,9 +10,3 @@
 This project is developed to fulfil the requirements of the Final Project for the PBKK (IUP class) course.
 
 Topic of the project: **CCKK Online Bookstore**
-
-## CDM
-![CDM](image/cdm.png)
-
-## PDM
-![PDM](image/pdm.png)
