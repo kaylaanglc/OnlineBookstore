@@ -33,14 +33,21 @@
 
             <div class="max-w-7xl mx-auto p-6 lg:p-8">
                 <div class="flex justify-center">
-                    <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto bg-gray-100 dark:bg-gray-900">
-                        <path d="M61.8548 14.6253C61.8778 14.7102 61.8895 14.7978 61.8897 14.8858V28.5615C61.8898 28.737 61.8434 28.9095 61.7554 29.0614C61.6675 29.2132 61.5409 29.3392 61.3887 29.4265L49.9104 36.0351V49.1337C49.9104 49.4902 49.7209 49.8192 49.4118 49.9987L25.4519 63.7916C25.3971 63.8227 25.3372 63.8427 25.2774 63.8639C25.255 63.8714 25.2338 63.8851 25.2101 63.8913C25.0426 63.9354 24.8666 63.9354 24.6991 63.8913C24.6716 63.8838 24.6467 63.8689 24.6205 63.8589C24.5657 63.8389 24.5084 63.8215 24.456 63.7916L0.501061 49.9987C0.348882 49.9113 0.222437 49.7853 0.134469 49.6334C0.0465019 49.4816 0.000120578 49.3092 0 49.1337L0 8.10652C0 8.01678 0.0124642 7.92953 0.0348998 7.84477C0.0423783 7.8161 0.0598282 7.78993 0.0697995 7.76126C0.0884958 7.70891 0.105946 7.65531 0.133367 7.6067C0.152063 7.5743 0.179485 7.54812 0.20192 7.51821C0.230588 7.47832 0.256763 7.43719 0.290416 7.40229C0.319084 7.37362 0.356476 7.35243 0.388883 7.32751C0.425029 7.29759 0.457436 7.26518 0.498568 7.2415L12.4779 0.345059C12.6296 0.257786 12.8015 0.211853 12.9765 0.211853C13.1515 0.211853 13.3234 0.257786 13.475 0.345059L25.4531 7.2415H25.4556C25.4955 7.26643 25.5292 7.29759 25.5653 7.32626C25.5977 7.35119 25.6339 7.37362 25.6625 7.40104C25.6974 7.43719 25.7224 7.47832 25.7523 7.51821C25.7735 7.54812 25.8021 7.5743 25.8196 7.6067C25.8483 7.65656 25.8645 7.70891 25.8844 7.76126C25.8944 7.78993 25.9118 7.8161 25.9193 7.84602C25.9423 7.93096 25.954 8.01853 25.9542 8.10652V33.7317L35.9355 27.9844V14.8846C35.9355 14.7973 35.948 14.7088 35.9704 14.6253C35.9792 14.5954 35.9954 14.5692 36.0053 14.5405C36.0253 14.4882 36.0427 14.4346 36.0702 14.386C36.0888 14.3536 36.1163 14.3274 36.1375 14.2975C36.1674 14.2576 36.1923 14.2165 36.2272 14.1816C36.2559 14.1529 36.292 14.1317 36.3244 14.1068C36.3618 14.0769 36.3942 14.0445 36.4341 14.0208L48.4147 7.12434C48.5663 7.03694 48.7383 6.99094 48.9133 6.99094C49.0883 6.99094 49.2602 7.03694 49.4118 7.12434L61.3899 14.0208C61.4323 14.0457 61.4647 14.0769 61.5021 14.1055C61.5333 14.1305 61.5694 14.1529 61.5981 14.1803C61.633 14.2165 61.6579 14.2576 61.6878 14.2975C61.7103 14.3274 61.7377 14.3536 61.7551 14.386C61.7838 14.4346 61.8 14.4882 61.8199 14.5405C61.8312 14.5692 61.8474 14.5954 61.8548 14.6253ZM59.893 27.9844V16.6121L55.7013 19.0252L49.9104 22.3593V33.7317L59.8942 27.9844H59.893ZM47.9149 48.5566V37.1768L42.2187 40.4299L25.953 49.7133V61.2003L47.9149 48.5566ZM1.99677 9.83281V48.5566L23.9562 61.199V49.7145L12.4841 43.2219L12.4804 43.2194L12.4754 43.2169C12.4368 43.1945 12.4044 43.1621 12.3682 43.1347C12.3371 43.1097 12.3009 43.0898 12.2735 43.0624L12.271 43.0586C12.2386 43.0275 12.2162 42.9888 12.1887 42.9539C12.1638 42.9203 12.1339 42.8916 12.114 42.8567L12.1127 42.853C12.0903 42.8156 12.0766 42.7707 12.0604 42.7283C12.0442 42.6909 12.023 42.656 12.013 42.6161C12.0005 42.5688 11.998 42.5177 11.9931 42.4691C11.9881 42.4317 11.9781 42.3943 11.9781 42.3569V15.5801L6.18848 12.2446L1.99677 9.83281ZM12.9777 2.36177L2.99764 8.10652L12.9752 13.8513L22.9541 8.10527L12.9752 2.36177H12.9777ZM18.1678 38.2138L23.9574 34.8809V9.83281L19.7657 12.2459L13.9749 15.5801V40.6281L18.1678 38.2138ZM48.9133 9.14105L38.9344 14.8858L48.9133 20.6305L58.8909 14.8846L48.9133 9.14105ZM47.9149 22.3593L42.124 19.0252L37.9323 16.6121V27.9844L43.7219 31.3174L47.9149 33.7317V22.3593ZM24.9533 47.987L39.59 39.631L46.9065 35.4555L36.9352 29.7145L25.4544 36.3242L14.9907 42.3482L24.9533 47.987Z" fill="#FF2D20"/>
+                     <svg width="123" height="32" viewBox="0 0 123 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M92.6118 31V30.04L96.1718 29.24V2.25998L92.6118 1.49998V0.539978H104.172V1.49998L100.672 2.25998V16.12L111.632 3.87998C111.858 3.65331 112.018 3.43998 112.112 3.23998C112.218 3.02665 112.272 2.83998 112.272 2.67998C112.272 2.33331 112.005 2.06665 111.472 1.87998C110.952 1.69331 110.118 1.56665 108.972 1.49998V0.539978H119.552V1.49998C118.338 1.69998 117.385 1.89998 116.692 2.09998C116.012 2.28665 115.458 2.51998 115.032 2.79998C114.605 3.07998 114.178 3.46665 113.752 3.95998L106.032 12.72L118.652 29.24L122.932 30.04V31H114.072L103.012 16.14L100.672 18.8V29.24L104.172 30.04V31H92.6118Z" fill="white"/>
+                        <path d="M61.479 31V30.04L65.039 29.24V2.25998L61.479 1.49998V0.539978H73.039V1.49998L69.539 2.25998V16.12L80.499 3.87998C80.7257 3.65331 80.8857 3.43998 80.979 3.23998C81.0857 3.02665 81.139 2.83998 81.139 2.67998C81.139 2.33331 80.8723 2.06665 80.339 1.87998C79.819 1.69331 78.9857 1.56665 77.839 1.49998V0.539978H88.419V1.49998C87.2057 1.69998 86.2523 1.89998 85.559 2.09998C84.879 2.28665 84.3257 2.51998 83.899 2.79998C83.4723 3.07998 83.0457 3.46665 82.619 3.95998L74.899 12.72L87.519 29.24L91.799 30.04V31H82.939L71.879 16.14L69.539 18.8V29.24L73.039 30.04V31H61.479Z" fill="white"/>
+                        <path d="M45.5195 31.42C42.6529 31.42 40.1262 30.7667 37.9395 29.46C35.7662 28.1533 34.0662 26.34 32.8395 24.02C31.6262 21.6867 31.0195 19 31.0195 15.96C31.0195 13.64 31.3729 11.5133 32.0795 9.57999C32.7995 7.64666 33.8129 5.97333 35.1195 4.56C36.4262 3.14666 37.9729 2.05333 39.7595 1.27999C41.5462 0.506662 43.5062 0.119995 45.6395 0.119995C47.2129 0.119995 48.7395 0.333329 50.2195 0.759995C51.7129 1.17333 53.0595 1.77333 54.2595 2.56H54.4195L56.3395 0.539993H57.1195V9.72H55.8195C55.5929 8.98666 55.3395 8.32666 55.0595 7.73999C54.7929 7.15333 54.5062 6.61333 54.1995 6.12C53.2662 4.62666 52.1662 3.55999 50.8995 2.92C49.6329 2.28 48.1262 1.96 46.3795 1.96C43.1529 1.96 40.6662 3.14 38.9195 5.49999C37.1862 7.85999 36.3195 11.2467 36.3195 15.66C36.3195 20.0733 37.1929 23.4867 38.9395 25.9C40.6995 28.3133 43.1795 29.52 46.3795 29.52C47.9662 29.52 49.3995 29.2067 50.6795 28.58C51.9595 27.94 53.0262 27.0067 53.8795 25.78C54.3729 25.0867 54.7929 24.3 55.1395 23.42C55.4995 22.54 55.7729 21.58 55.9595 20.54H57.1195V31H56.0995L54.2995 28.4C52.8862 29.4533 51.4729 30.22 50.0595 30.7C48.6595 31.18 47.1462 31.42 45.5195 31.42Z" fill="white"/>
+                        <path d="M14.6602 31.42C11.7935 31.42 9.26682 30.7667 7.08016 29.46C4.90682 28.1533 3.20682 26.34 1.98016 24.02C0.766823 21.6867 0.160156 19 0.160156 15.96C0.160156 13.64 0.51349 11.5133 1.22016 9.57999C1.94016 7.64666 2.95349 5.97333 4.26016 4.56C5.56682 3.14666 7.11349 2.05333 8.90016 1.27999C10.6868 0.506662 12.6468 0.119995 14.7802 0.119995C16.3535 0.119995 17.8802 0.333329 19.3602 0.759995C20.8535 1.17333 22.2002 1.77333 23.4002 2.56H23.5602L25.4802 0.539993H26.2602V9.72H24.9602C24.7335 8.98666 24.4802 8.32666 24.2002 7.73999C23.9335 7.15333 23.6468 6.61333 23.3402 6.12C22.4068 4.62666 21.3068 3.55999 20.0402 2.92C18.7735 2.28 17.2668 1.96 15.5202 1.96C12.2935 1.96 9.80682 3.14 8.06016 5.49999C6.32682 7.85999 5.46016 11.2467 5.46016 15.66C5.46016 20.0733 6.33349 23.4867 8.08016 25.9C9.84016 28.3133 12.3202 29.52 15.5202 29.52C17.1068 29.52 18.5402 29.2067 19.8202 28.58C21.1002 27.94 22.1668 27.0067 23.0202 25.78C23.5135 25.0867 23.9335 24.3 24.2802 23.42C24.6402 22.54 24.9135 21.58 25.1002 20.54H26.2602V31H25.2402L23.4402 28.4C22.0268 29.4533 20.6135 30.22 19.2002 30.7C17.8002 31.18 16.2868 31.42 14.6602 31.42Z" fill="white"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7" style="stroke: white;">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
                     </svg>
                 </div>
 
-                <div class="mt-16">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                        <a href="https://laravel.com/docs" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
+                <div class>
+                    {{-- <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"> --}}
+                    <div class="flex items-center justify-center min-h-screen">
+                        <a href="{{ route('login') }}" class="scale-200 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
                             <div>
                                 <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
@@ -48,10 +55,18 @@
                                     </svg>
                                 </div>
 
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Documentation</h2>
+                                <h2 class="mt-4 text-xl font-semibold text-gray-900 dark:text-white">Welcome to CCKK Bookstore!</h2>
 
                                 <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel has wonderful documentation covering every aspect of the framework. Whether you are a newcomer or have prior experience with Laravel, we recommend reading our documentation from beginning to end.
+                                    <strong>Discover the World of Endless Stories</strong>
+                                    <br>
+                                    <br>
+                                    At CCKK Bookstore, we believe in the magic of words and the power of storytelling. Immerse yourself in a literary haven where every page invites you into a new adventure. Whether you're a voracious reader or just starting your reading journey, our curated collection has something for everyone.
+                                    <br>
+                                    <br>
+                                    <strong>Start Your Reading Journey Today!</strong>
+                                    <br>
+                                    Dive into a world of stories at CCKK Bookstore. Your next great adventure awaits between the pages. Join us in celebrating the joy of reading!
                                 </p>
                             </div>
 
@@ -60,7 +75,7 @@
                             </svg>
                         </a>
 
-                        <a href="https://laracasts.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
+                        {{-- <a href="https://laracasts.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
                             <div>
                                 <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
@@ -116,9 +131,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
-                <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
+                {{-- <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
                     <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
                         <div class="flex items-center gap-4">
                             <a href="https://github.com/sponsors/taylorotwell" class="group inline-flex items-center hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
@@ -133,7 +148,7 @@
                     <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
                         Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </body>
