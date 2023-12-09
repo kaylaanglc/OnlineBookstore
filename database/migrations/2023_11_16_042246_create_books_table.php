@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('author');
             $table->string('ISBN')->unique();
             $table->decimal('price', 10, 2);
+            $table->string('image');
             $table->timestamps();
         });
     }

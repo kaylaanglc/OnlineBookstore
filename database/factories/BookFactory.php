@@ -49,6 +49,22 @@ class BookFactory extends Factory
             'Ugly Love',
         ];
 
+        $imageExamples = [];
+
+        $allowedExtensions = ['jpeg', 'jpg', 'png'];
+        for ($i = 1; $i <= count($titleExamples); $i++) {
+            foreach ($allowedExtensions as $extension) {
+                $filename = "Title{$i}.{$extension}";
+
+                // Check if the file exists before adding it to the examples.
+                $filePath = public_path("images/books/{$filename}");
+                if (file_exists($filePath)) {
+                    $imageExamples[] = $filename;
+                    break; // Stop loop if file is found.
+                }
+            }
+        }
+
         $authorExamples = [
             'J.D. Salinger',
             'Harper Lee',
@@ -77,16 +93,16 @@ class BookFactory extends Factory
         ];
 
         $price = $this->faker->randomFloat(2, 7, 30); // Random price between 50 and 500.
-
         $isbn = $this->faker->unique()->isbn13;
-
         self::$counter++;
+        $imagePath = public_path("images/books/{$imageExamples[self::$counter - 1]}");
 
         return [
             'title' => $titleExamples[self::$counter - 1],
             'author' => $authorExamples[self::$counter - 1],
             'ISBN' => $isbn,
             'price' => $price,
+            'image' => $imagePath,
         ];
     }
 }
