@@ -18,6 +18,16 @@
                 </div>
             </div>
 
+            <!-- Search Bar -->
+            <div class="ml-auto mt-4">
+                <form id="search-form" action="{{ route('books.search') }}" method="GET" class="flex items-center">
+                    <input type="text" name="title" placeholder="Search for books..." class="flex-grow rounded-lg h-8">
+                    <svg class="w-6 h-5 text-gray-800 dark:text-white ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" onclick="document.getElementById('search-form').submit()">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                    </svg>
+                </form>                
+            </div>
+
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
