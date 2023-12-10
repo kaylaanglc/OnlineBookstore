@@ -26,7 +26,7 @@
                             <div class="col-span-2 bg-white dark:bg-gray-800 shadow p-4 rounded-md w-full md:w-1/2 lg:w-1/2 flex mx-auto">
                                 @php
                                     // Assuming $book->title_number is the number associated with the title in the database
-                                    $titleNumber = $book->title_number ?? $index + 1;
+                                    $titleNumber = $book->id ?? $index + 1;
                                     $imageName = "Title" . $titleNumber . ".jpeg";
                                     $imageUrl = asset("public/images/books/$imageName");
                                 @endphp
