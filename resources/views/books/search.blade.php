@@ -26,10 +26,31 @@
                             <div class="col-span-2 bg-white dark:bg-gray-800 shadow p-4 rounded-md w-full md:w-1/2 lg:w-1/2 flex mx-auto">
                                 @php
                                     // Assuming $book->title_number is the number associated with the title in the database
-                                    $titleNumber = $book ->id ?? $index + 1;
-                                    $imageName = "Title" . $titleNumber . ".jpeg";
-                                    $imageUrl = asset("public/images/books/$imageName");
+                                    $extensions = ['jpeg', 'jpg', 'png'];
+                                    $titleNumber = $book->id ?? $index + 1;
+                                
+                                    $imageName = null;
+                                
+                                    // Loop through extensions to find a valid file
+                                    foreach ($extensions as $extension) {
+                                        $candidateImage = "Title{$titleNumber}.{$extension}";
+                                        $filePath = public_path("images/books/{$candidateImage}");
+                                
+                                        if (file_exists($filePath)) {
+                                            $imageName = $candidateImage;
+                                            break; // Stop the loop if a valid file is found
+                                        }
+                                    }
+                                
+                                    // Check if a valid file was found
+                                    if ($imageName) {
+                                        $imageUrl = asset("images/books/$imageName");
+                                    } else {
+                                        // Handle the case where no valid file was found
+                                        $imageUrl = null; // Or provide a default image URL or handle accordingly
+                                    }
                                 @endphp
+                            
                                 <img src="{{ $imageUrl }}" class="mb-4 rounded-md w-1/5">
                                 <div class="flex-1 ml-4">
                                     <h2 style="color: {{ config('app.theme') === 'dark' ? 'black' : 'white' }}">{{ $book->title }}</h2>
