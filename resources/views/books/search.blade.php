@@ -19,21 +19,32 @@
 
         <!-- Page Content -->
         <main class="mt-16 mb-8">
-            <div class="grid grid-cols-2 gap-3">
-                @if(count($books) > 0)
-                    @foreach($books as $book)
-                        <div class="col-span-2 bg-white dark:bg-gray-800 shadow p-4 rounded-md w-full md:w-1/2 lg:w-1/2">
-                            <h2 style="color: {{ config('app.theme') === 'dark' ? 'black' : 'white' }}">{{ $book->title }}</h2>
-                            <p style="color: {{ config('app.theme') === 'dark' ? 'black' : 'white' }}">Author: {{ $book->author }}</p>
-                            <p style="color: {{ config('app.theme') === 'dark' ? 'black' : 'white' }}">ISBN: {{ $book->isbn }}</p>
-                            <p style="color: {{ config('app.theme') === 'dark' ? 'black' : 'white' }}">Price: {{ $book->price }}</p>
-                        </div>
-                    @endforeach
-                @else
-                    <p style="color: {{ config('app.theme') === 'dark' ? 'black' : 'white' }}">No books found</p>
-                @endif
+            <div class="container mx-auto">
+                <div class="grid grid-cols-2 gap-3">
+                    @if(count($books) > 0)
+                        @foreach($books as $index => $book)
+                            <div class="col-span-2 bg-white dark:bg-gray-800 shadow p-4 rounded-md w-full md:w-1/2 lg:w-1/2 flex mx-auto">
+                                @php
+                                    // Assuming $book->title_number is the number associated with the title in the database
+                                    $titleNumber = $book->title_number ?? $index + 1;
+                                    $imageName = "Title" . $titleNumber . ".jpeg";
+                                    $imageUrl = asset("public/images/books/$imageName");
+                                @endphp
+                                <img src="{{ $imageUrl }}" class="mb-4 rounded-md w-1/5">
+                                <div class="flex-1 ml-4">
+                                    <h2 style="color: {{ config('app.theme') === 'dark' ? 'black' : 'white' }}">{{ $book->title }}</h2>
+                                    <p style="color: {{ config('app.theme') === 'dark' ? 'black' : 'white' }}">Author: {{ $book->author }}</p>
+                                    <p style="color: {{ config('app.theme') === 'dark' ? 'black' : 'white' }}">ISBN: {{ $book->isbn }}</p>
+                                    <p style="color: {{ config('app.theme') === 'dark' ? 'black' : 'white' }}">Price: {{ $book->price }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <p style="color: {{ config('app.theme') === 'dark' ? 'black' : 'white' }}">No books found</p>
+                    @endif
+                </div>
             </div>
-        </main>
+        </main>             
 
         <!-- Footer Section -->
         <footer class="bg-gray-800 text-white p-4 text-center">
