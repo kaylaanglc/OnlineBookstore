@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\OrderAndPaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,16 +21,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
+// Dashboard
 Route::get('/dashboard', [BookController::class, 'map'])->middleware(['auth', 'verified'])->name('dashboard');
 
-
+// Search Page
 Route::get('/search', [BookController::class, 'search'])->name('books.search');
 
+// Cart
+// Cart Page
 Route::get('/cart', [CartController::class, 'list'])->name('cart.list');
+// Add to Cart (from Books List in Dashboard)
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+// Add to Cart (from Search page)
+Route::post('/cart/addSearch', [CartController::class, 'addToCartSearch'])->name('cart.addSearch');
+
+// Order And Payment
+Route::get('/order', [OrderAndPaymentController::class, 'showOrderForm'])->name('order.form');
+Route::post('/continue-to-payment', [OrderAndPaymentController::class, 'continueToPayment'])->name('continue-to-payment');
+Route::get('/payment', [OrderAndPaymentController::class, 'payment'])->name('payment');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
