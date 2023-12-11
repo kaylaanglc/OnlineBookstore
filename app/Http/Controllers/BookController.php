@@ -19,4 +19,12 @@ class BookController extends Controller
 
         return view('books.search', compact('books'));
     }
+
+    public function map()
+    {
+        $perPage = 10;
+        $books = Book::paginate($perPage);
+
+        return view('dashboard', compact('books'));
+    }
 }

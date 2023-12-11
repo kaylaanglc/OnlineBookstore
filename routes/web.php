@@ -20,9 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard', [BookController::class, 'map'])->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::get('/search', [BookController::class, 'search'])->name('books.search');
 
