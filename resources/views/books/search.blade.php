@@ -51,9 +51,9 @@
                                     }
                                 @endphp
                             
-                                <div class="flex-1">
-                                    <img src="{{ $imageUrl }}" class="mb-4 rounded-md w-1/2"> <!-- Adjust the width as needed -->
-                                </div>
+                            
+                            <img src="{{ $imageUrl }}" class="mb-4 rounded-md" style="height: 200px"> <!-- Adjust the width as needed -->
+                            
                                 
                                 <div class="flex-1 ml-4">
                                     <h2 style="color: {{ config('app.theme') === 'dark' ? 'black' : 'white' }}">{{ $book->title }}</h2>
