@@ -26,3 +26,8 @@
       </div>
   </x-app-layout>
 
+  <!-- Footer Section -->
+  <footer class="bg-gray-800 text-white p-4 text-center">
+    <p>&copy; {{ date('Y') }} CCKK Online Bookstore. All rights reserved.</p>
+</footer>
+
