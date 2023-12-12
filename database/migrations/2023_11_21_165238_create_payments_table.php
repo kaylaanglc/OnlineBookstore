@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id')->unsigned()->constrained();
             $table->decimal('amount', 10, 2);
             $table->date('payment_date');
-            $table->string('payment_method');
+            $table->foreignId('payment_method_id')->unsigned()->constrained();
             $table->timestamps();
         });
     }

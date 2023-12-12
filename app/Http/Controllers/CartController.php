@@ -18,7 +18,7 @@ class CartController extends Controller
         if (!$latestOrder) {
             $latestOrder = Order::create([
                 'user_id' => $user->id,
-                // Add any other necessary fields for your Order model
+                // 'payment_id' => null
             ]);
         }
 

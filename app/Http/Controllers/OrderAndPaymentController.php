@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Payment;
+use App\Models\PaymentMethod;
 use App\Http\Controllers\CartController;
 use Illuminate\Http\Request;
 
@@ -59,7 +61,49 @@ class OrderAndPaymentController extends Controller
     {
         // Assuming you have the CartController implemented
         $totalPrice = app(CartController::class)->list()['totalPrice'];
-        return view('orderAndPayment.payment', compact('totalPrice'));
+
+        $user = auth()->user();
+        $cartController = app(CartController::class);
+        $currentOrder = $cartController->getCurrentOrder($user);
+
+        $paymentMethods = PaymentMethod::all();
+
+        return view('orderAndPayment.payment', compact('totalPrice', 'currentOrder', 'paymentMethods'));
     }
+
+    public function processPayment(Request $request)
+    {
+        // Validate the request data as needed
+
+        $user = auth()->user();
+        $cartController = app(CartController::class);
+        $currentOrder = $cartController->getCurrentOrder($user);
+
+        $totalPrice = app(CartController::class)->list()['totalPrice'];
+
+        $payment = Payment::create([
+            'amount' => $totalPrice,
+            'payment_date' => now(),
+            'payment_method_id' => $request->input('paymentMethod'),
+        ]);
+
+        // Update the current order with the payment id
+        $updateResult = $currentOrder->update([
+            'payment_id' => $payment->id
+        ]);
+
+        // Clear the current order
+        $currentOrder->items()->delete();
+
+        // Create a new order for the user
+        $newOrder = Order::create([
+            'user_id' => $user->id,
+        ]);
+
+        // Add any additional logic or redirects as needed
+
+        return redirect('/dashboard')->with('success', 'Payment successful!');
+    }
+
 
 }

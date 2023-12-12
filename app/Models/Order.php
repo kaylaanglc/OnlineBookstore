@@ -14,7 +14,8 @@ class Order extends Model
         'email',
         'phone',
         'address',
-        'user_id'
+        'user_id',
+        'payment_id'
     ];
 
     public function user()

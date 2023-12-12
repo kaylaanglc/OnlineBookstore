@@ -39,6 +39,7 @@ Route::post('/cart/addSearch', [CartController::class, 'addToCartSearch'])->name
 Route::get('/order', [OrderAndPaymentController::class, 'showOrderForm'])->name('order.form');
 Route::post('/continue-to-payment', [OrderAndPaymentController::class, 'continueToPayment'])->name('continue-to-payment');
 Route::get('/payment', [OrderAndPaymentController::class, 'payment'])->name('payment');
+Route::post('/process-payment', [OrderAndPaymentController::class, 'processPayment'])->name('process.payment');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
