@@ -31,12 +31,16 @@
                                     <li>Author: {{ $cartItem->book->author }}</li>
                                     <li>Quantity: {{ $cartItem->quantity }}</li>
                                     <li>Price: ${{ number_format($cartItem->book->price, 2) }}</li>
-                                    
                                 </ul>
                                 {{-- Add more details as needed --}}
                             </div>
                             <div class="md:flex-shrink text-right">
-                                <p>Subtotal: ${{ number_format($cartItem->quantity * $cartItem->book->price, 2) }}</p>
+                                <p class="mb-2">Subtotal: ${{ number_format($cartItem->quantity * $cartItem->book->price, 2) }}</p>
+                                <button class="text-red-500 dark:text-red-500" onclick="handleIconClick()">
+                                    <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M1 5h16M7 8v8m4-8v8M7 1h4a1 1 0 0 1 1 1v3H6V2a1 1 0 0 1 1-1ZM3 5h12v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5Z"/>
+                                    </svg>
+                                </button>                                
                             </div>
                         </li>
                     @endforeach
@@ -51,6 +55,14 @@
                 <p>Your cart is empty.</p>
             @endif
         </div>
+        
+        <script>
+            function handleIconClick() {
+                // Add your icon click functionality here
+                console.log('Icon clicked!');
+            }
+        </script>
+        
 
         <!-- Footer Section -->
         <footer class="bg-gray-800 text-white p-4 text-center">
