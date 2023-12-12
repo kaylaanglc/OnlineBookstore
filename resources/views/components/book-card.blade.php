@@ -37,10 +37,10 @@
         <div class="grow pl-2 pt-1">
             <b class="text-white text-lg">{{ $book->title }}</b>
             <p class="text-gray-500">{{ $book->author }}</p>
-            <p class="text-gray-500">{{ $book->ISBN }}</p>
             <div class="">
                 <x-bladewind.tag label="${{ $book->price }}" color="blue"/>
             </div>
+            <b class="text-white text-italic">{{ $book->ISBN }}</b>
         </div>
         <div>
             <form action="{{ route('cart.add') }}" method="post">
