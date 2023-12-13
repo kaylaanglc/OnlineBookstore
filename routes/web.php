@@ -35,6 +35,8 @@ Route::get('/cart', [CartController::class, 'list'])->name('cart.list');
 Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
 // Add to Cart (from Search page)
 Route::post('/cart/addSearch', [CartController::class, 'addToCartSearch'])->name('cart.addSearch');
+Route::delete('/cart/{orderItem}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+
 
 // Order And Payment
 Route::get('/order', [OrderAndPaymentController::class, 'showOrderForm'])->name('order.form');

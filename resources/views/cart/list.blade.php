@@ -20,6 +20,13 @@
 
         <!-- Page Content -->
         <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white flex justify-center mt-5">Shopping List</h2>
+        @if (session('success'))
+            <div class="mx-20 mt-4 animate-out fade-out delay-300 disappear-animation">
+                <x-bladewind.alert shade="dark" type="success" show_close_icon="false">
+                    {{ session('success') }}
+                </x-bladewind.alert>
+            </div>
+        @endif
         <div class="flex-grow grid grid-cols-2 gap-3 mb-2 ml-10">
             @if(count($cartItems) > 0)
                 <ul class="flex flex-col space-y-4">
@@ -34,11 +41,31 @@
                                  </ul>
                               </div>
                               <div class="text-white grow pl-1 pt-1">
-                                 <li class="text-center">{{ $cartItem->quantity }}</li>
+                                 <li class="text-center font-bold">{{ $cartItem->quantity }}</li>
                               </div>
                               <div>
+                                <script>
+                                    function handleIconClick(orderItemId) {
+                                        // Send an AJAX request to remove the book from the cart
+                                        fetch(`/cart/${orderItemId}`, {
+                                            method: 'DELETE',
+                                            headers: {
+                                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                                            },
+                                        })
+                                        .then(response => {
+                                            if (response.ok) {
+                                                // Update the view on successful deletion
+                                                location.reload();
+                                            } else {
+                                                console.error('Failed to remove book from the cart');
+                                            }
+                                        })
+                                        .catch(error => console.error('Error:', error));
+                                    }
+                                </script>
                                  <a href="">
-                                    <button class="text-red-500 dark:text-red-500 pl-24" onclick="handleIconClick()">
+                                    <button class="text-red-500 dark:text-red-500 pl-24" onclick="handleIconClick({{ $cartItem->id }})">
                                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M1 5h16M7 8v8m4-8v8M7 1h4a1 1 0 0 1 1 1v3H6V2a1 1 0 0 1 1-1ZM3 5h12v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5Z"/>
                                         </svg>
@@ -50,20 +77,19 @@
                       </x-bladewind.card>
                   @endforeach
                 </ul>
+                <div class="flex justify-end mt-10 mr-10">
+                    <h3 class="text-white text-xl font-semibold mb-2">Total Price: ${{ number_format($totalPrice, 2) }}</h3>
+                    {{-- You may want to format the total price according to your requirements --}}
+                </div>
+                <div class="flex justify-end mt-2 mr-5">
+                    <button class="btn btn-primary rounded-full text-white bg-blue-400 w-1/4 h-10" onclick="window.location.href='/order'">Checkout</button>
+                    {{-- <x-bladewind.button radius="full" color="blue" onclick="window.location.href='/order'" class="flex justify-end mr-5 text-white h-10 w-1/4 self-end mx-auto mb-4">Checkout</x-bladewind.button> --}}
+                </div>
                 {{-- <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="window.location.href='/order'">Proceed to Checkout</button> --}}
             @else
                 <p class="text-white mt-2 pl-5">Your cart is empty.</p>
             @endif
         </div>
-        <div class="flex justify-end mt-10 mr-10">
-            <h3 class="text-white text-xl font-semibold mb-2">Total Price: ${{ number_format($totalPrice, 2) }}</h3>
-            {{-- You may want to format the total price according to your requirements --}}
-         </div>
-         <div class="flex justify-end mt-2 mr-5">
-            <button class="btn btn-primary rounded-full text-white bg-blue-400 w-1/4 h-10" onclick="window.location.href='/order'">Checkout</button>
-            {{-- <x-bladewind.button radius="full" color="blue" onclick="window.location.href='/order'" class="flex justify-end mr-5 text-white h-10 w-1/4 self-end mx-auto mb-4">Checkout</x-bladewind.button> --}}
-         </div>
-
 
         <!-- Footer Section -->
         <footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4 bottom-0">

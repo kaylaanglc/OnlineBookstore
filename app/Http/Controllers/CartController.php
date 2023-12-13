@@ -106,4 +106,11 @@ class CartController extends Controller
 
         return back()->with('success', 'Book added to the cart successfully.');
     }
+
+    public function removeFromCart(OrderItem $orderItem)
+    {
+        $orderItem->delete();
+
+        return back()->with('success', 'Book removed from the cart successfully.');
+    }
 }
