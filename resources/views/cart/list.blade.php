@@ -49,14 +49,19 @@
                         </x-bladewind.card>
                     @endforeach
                 </ul>
+                <div class="mt-8">
+                    <h3 class="text-white text-xl font-semibold mb-2">Total Price: ${{ number_format($totalPrice, 2) }}</h3>
+                    {{-- You may want to format the total price according to your requirements --}}
+                </div>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="window.location.href='/order'">Proceed to Checkout</button>
             @else
-                <p>Your cart is empty.</p>
+                <p class="text-white mt-2 pl-5">Your cart is empty.</p>
             @endif
         </div>
-        
+
         {{-- <div class="container mx-auto mt-8">
             <h2 class="text-white text-2xl font-semibold mb-4">Shopping List</h2>
-        
+
             @if(count($cartItems) > 0)
                 <ul class="flex flex-col space-y-4">
                     @foreach($cartItems as $cartItem)
@@ -76,12 +81,12 @@
                                     <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M1 5h16M7 8v8m4-8v8M7 1h4a1 1 0 0 1 1 1v3H6V2a1 1 0 0 1 1-1ZM3 5h12v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5Z"/>
                                     </svg>
-                                </button>                                
+                                </button>
                             </div>
                         </li>
                     @endforeach
                 </ul>
-        
+
                 <div class="mt-8">
                     <h3 class="text-white text-xl font-semibold mb-2">Total Price: ${{ number_format($totalPrice, 2) }}</h3> --}}
                     {{-- You may want to format the total price according to your requirements --}}
@@ -91,14 +96,14 @@
                 <p>Your cart is empty.</p>
             @endif
         </div>
-        
+
         <script>
             function handleIconClick() { --}}
                 {{-- // Add your icon click functionality here --}}
                 {{-- console.log('Icon clicked!');
             }
         </script> --}}
-        
+
 
         <!-- Footer Section -->
         <footer class="bg-gray-800 text-white p-4 text-center">
