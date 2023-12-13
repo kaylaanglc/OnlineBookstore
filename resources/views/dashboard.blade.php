@@ -19,7 +19,7 @@
                 <div class="mt-5 mb-5">
                     <form action="{{ route('dashboard') }}" method="get">
                         <label for="sort_by" class="mr-2 text-white ">Sort by:</label>
-                        <select name="sort_by" id="sort_by" onchange="this.form.submit()" class="bg-gray-50 mb-5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-30 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <select name="sort_by" id="sort_by" onchange="this.form.submit()" class="bg-gray-50 mb-5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-5 py-2.5 text-center inline-flex items-center dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option value="default" {{ request('sort_by') == 'default' ? 'selected' : '' }}>Default</option>
                             <option value="price_low_high" {{ request('sort_by') == 'price_low_high' ? 'selected' : '' }}>Price - Low to High</option>
                             <option value="price_high_low" {{ request('sort_by') == 'price_high_low' ? 'selected' : '' }}>Price - High to Low</option>
