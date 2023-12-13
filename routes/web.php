@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\OrderAndPaymentController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,10 @@ Route::get('/order', [OrderAndPaymentController::class, 'showOrderForm'])->name(
 Route::post('/continue-to-payment', [OrderAndPaymentController::class, 'continueToPayment'])->name('continue-to-payment');
 Route::get('/payment', [OrderAndPaymentController::class, 'payment'])->name('payment');
 Route::post('/process-payment', [OrderAndPaymentController::class, 'processPayment'])->name('process.payment');
+
+// Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::resource('admin', AdminController::class);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

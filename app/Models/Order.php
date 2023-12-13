@@ -32,4 +32,9 @@ class Order extends Model
     {
         return $this->hasOne(Payment::class);
     }
+
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class);
+    }
 }

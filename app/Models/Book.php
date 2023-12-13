@@ -21,4 +21,9 @@ class Book extends Model
         'price',
         'image'
     ];
+
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class);
+    }
 }
