@@ -4,7 +4,7 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-    
+
     <div class="flex flex-col min-h-screen">
         <div class="flex flex-col gap-10">
             @if (session('success'))
@@ -14,19 +14,33 @@
                     </x-bladewind.alert>
                 </div>
             @endif
-            <!-- Books List -->
             <section class="mx-20 mb-4">
+                {{-- Sorting Filter --}}
+                <div class="mt-5 mb-5">
+                    <form action="{{ route('dashboard') }}" method="get">
+                        <label for="sort_by" class="mr-2 text-white">Sort by:</label>
+                        <select name="sort_by" id="sort_by" onchange="this.form.submit()">
+                            <option value="default" {{ request('sort_by') == 'default' ? 'selected' : '' }}>Default</option>
+                            <option value="price_low_high" {{ request('sort_by') == 'price_low_high' ? 'selected' : '' }}>Price - Low to High</option>
+                            <option value="price_high_low" {{ request('sort_by') == 'price_high_low' ? 'selected' : '' }}>Price - High to Low</option>
+                            <option value="title" {{ request('sort_by') == 'title' ? 'selected' : '' }}>Title</option>
+                            <option value="author" {{ request('sort_by') == 'author' ? 'selected' : '' }}>Author</option>
+                        </select>
+                    </form>
+                </div>
+                {{-- Books List --}}
                 <div class="grid grid-flow-row grid-cols-2 items-center gap-5">
                     @foreach ($books as $book)
                         <x-book-card :book="$book" />
                     @endforeach
                 </div>
+                {{-- Pagination Link --}}
                 <div class="mt-10 bg-white p-4 rounded-md bg-opacity-60">
-                    {{ $books->links() }}
+                    {{ $books->appends(['sort_by' => request('sort_by')])->links() }}
                 </div>
             </section>
         </div>
-        
+
         <footer class="bg-white rounded-lg shadow dark:bg-gray-900">
             <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
                 <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />

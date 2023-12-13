@@ -20,10 +20,33 @@ class BookController extends Controller
         return view('books.search', compact('books'));
     }
 
-    public function map()
+    public function map(Request $request)
     {
         $perPage = 10;
-        $books = Book::paginate($perPage);
+        $sortField = $request->input('sort_by', 'default');
+
+        $booksQuery = Book::query();
+
+        // Apply sorting based on the selected criteria
+        switch ($sortField) {
+            case 'price_low_high':
+                $booksQuery->orderBy('price', 'asc');
+                break;
+            case 'price_high_low':
+                $booksQuery->orderBy('price', 'desc');
+                break;
+            case 'title':
+                $booksQuery->orderBy('title', 'asc');
+                break;
+            case 'author':
+                $booksQuery->orderBy('author', 'asc');
+                break;
+            default:
+                // You can define your default sorting here
+                break;
+        }
+
+        $books = $booksQuery->paginate($perPage);
 
         return view('dashboard', compact('books'));
     }
