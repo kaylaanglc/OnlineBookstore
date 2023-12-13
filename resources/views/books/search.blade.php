@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-screen">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -13,7 +14,7 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="font-sans antialiased ">
+<body class="font-sans antialiased h-screen overflow-y-auto m-0">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
         @include('layouts.navigation')
 
@@ -90,9 +91,17 @@
         </main>
 
         <!-- Footer Section -->
-        <footer class="bg-gray-800 text-white p-4 text-center">
-            <p>&copy; {{ date('Y') }} CCKK Online Bookstore. All rights reserved.</p>
+        <footer class="bg-white rounded-lg shadow dark:bg-gray-900">
+            <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+                <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">&copy; {{ date('Y') }} CCKK Online Bookstore. All rights reserved.</span>
+            </div>
         </footer>
+        {{-- <div class="flex flex-col min-h-screen">
+            <footer class="mt-auto bg-gray-800 text-white p-4 text-center">
+                <p>&copy; {{ date('Y') }} CCKK Online Bookstore. All rights reserved.</p>
+            </footer>
+        </div> --}}
     </div>
 </body>
 </html>
