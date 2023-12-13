@@ -19,7 +19,7 @@
         @include('layouts.navigation')
 
         <!-- Page Content -->
-        <h2 class="text-white text-2xl font-semibold mb-4 mt-2 pl-5">Shopping List</h2>
+        <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white flex justify-center mt-5">Shopping List</h2>
         <div class="flex-grow grid grid-cols-2 gap-3 mb-2 ml-10">
             @if(count($cartItems) > 0)
                 <ul class="flex flex-col space-y-4">
@@ -55,18 +55,18 @@
                 <p class="text-white mt-2 pl-5">Your cart is empty.</p>
             @endif
         </div>
-        <div class="flex justify-end mt-8 mr-10">
+        <div class="flex justify-end mt-10 mr-10">
             <h3 class="text-white text-xl font-semibold mb-2">Total Price: ${{ number_format($totalPrice, 2) }}</h3>
             {{-- You may want to format the total price according to your requirements --}}
          </div>
          <div class="flex justify-end mt-2 mr-5">
-            <button class="rounded-full text-white bg-blue-400 w-1/4 h-10" onclick="window.location.href='/order'">Checkout</button>
+            <button class="btn btn-primary rounded-full text-white bg-blue-400 w-1/4 h-10" onclick="window.location.href='/order'">Checkout</button>
             {{-- <x-bladewind.button radius="full" color="blue" onclick="window.location.href='/order'" class="flex justify-end mr-5 text-white h-10 w-1/4 self-end mx-auto mb-4">Checkout</x-bladewind.button> --}}
          </div>
 
 
         <!-- Footer Section -->
-        <footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4 bottom-0 w-full">
+        <footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4 bottom-0">
             <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
                 <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
                 <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">&copy; {{ date('Y') }} CCKK Online Bookstore. All rights reserved.</span>
