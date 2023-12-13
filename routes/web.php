@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderHistoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\BookController;
@@ -37,6 +38,8 @@ Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add')
 Route::post('/cart/addSearch', [CartController::class, 'addToCartSearch'])->name('cart.addSearch');
 Route::delete('/cart/{orderItem}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 
+// Order History
+Route::get('/order-history', [OrderHistoryController::class, 'index'])->name('order.history');
 
 // Order And Payment
 Route::get('/order', [OrderAndPaymentController::class, 'showOrderForm'])->name('order.form');
