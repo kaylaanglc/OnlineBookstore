@@ -40,9 +40,66 @@
                                     <li>Price: ${{ number_format($cartItem->book->price, 2) }}</li>
                                  </ul>
                               </div>
-                              <div class="text-white grow pl-1 pt-1">
-                                 <li class="text-center font-bold">{{ $cartItem->quantity }}</li>
-                              </div>
+
+                                <div class="text-white grow pl-1 pt-1 flex items-center">
+                                    <!-- Left Icon (Decrease Quantity) -->
+                                    <button class="text-blue-500 dark:text-blue-500" onclick="decreaseQuantity({{ $cartItem->id }})">
+                                        <svg class="w-3 h-3 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M1 1h16"/>
+                                          </svg>
+                                    </button>
+
+                                    <!-- Quantity Display -->
+                                    <span class="text-center font-bold mx-2">{{ $cartItem->quantity }}</span>
+
+                                    <!-- Right Icon (Increase Quantity) -->
+                                    <button class="text-blue-500 dark:text-blue-500" onclick="increaseQuantity({{ $cartItem->id }})">
+                                        <svg class="w-3 h-3 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 1v16M1 9h16"/>
+                                          </svg>
+                                    </button>
+                                </div>
+
+                                <script>
+                                    function decreaseQuantity(orderItemId) {
+                                        // Send an AJAX request to decrease the quantity
+                                        fetch(`/cart/decrease/${orderItemId}`, {
+                                            method: 'POST',
+                                            headers: {
+                                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                                            },
+                                        })
+                                        .then(response => {
+                                            if (response.ok) {
+                                                // Update the view on successful quantity decrease
+                                                location.reload();
+                                            } else {
+                                                console.error('Failed to decrease quantity');
+                                            }
+                                        })
+                                        .catch(error => console.error('Error:', error));
+                                    }
+
+                                    function increaseQuantity(orderItemId) {
+                                        // Send an AJAX request to increase the quantity
+                                        fetch(`/cart/increase/${orderItemId}`, {
+                                            method: 'POST',
+                                            headers: {
+                                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                                            },
+                                        })
+                                        .then(response => {
+                                            if (response.ok) {
+                                                // Update the view on successful quantity increase
+                                                location.reload();
+                                            } else {
+                                                console.error('Failed to increase quantity');
+                                            }
+                                        })
+                                        .catch(error => console.error('Error:', error));
+                                    }
+                                </script>
+
                               <div>
                                 <script>
                                     function handleIconClick(orderItemId) {
