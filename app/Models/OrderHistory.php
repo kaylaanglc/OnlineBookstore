@@ -11,7 +11,12 @@ class OrderHistory extends Model
 
     protected $fillable = [
         'order_id',
-        'payment_id'
+        'payment_id',
+        'book_title',
+        'quantity',
+        'total_price',
+        'author',
+        // Add any other necessary fields here
     ];
 
     public function order()
@@ -24,4 +29,3 @@ class OrderHistory extends Model
         return $this->belongsTo(Payment::class);
     }
 }
-

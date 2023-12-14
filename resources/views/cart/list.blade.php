@@ -83,6 +83,27 @@
                 </div>
                 <div class="flex justify-end mt-2 mr-5">
                     <button class="btn btn-primary rounded-full text-white bg-blue-400 w-1/4 h-10" onclick="window.location.href='/order'">Checkout</button>
+
+                    <script>
+                        function checkout() {
+                            // Send an AJAX request to move the current cart items to order history
+                            fetch('/cart/checkout', {
+                                method: 'POST',
+                                headers: {
+                                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                                },
+                            })
+                            .then(response => {
+                                if (response.ok) {
+                                    // Redirect to the order page after successful checkout
+                                    window.location.href = '/order';
+                                } else {
+                                    console.error('Failed to checkout');
+                                }
+                            })
+                            .catch(error => console.error('Error:', error));
+                        }
+                    </script>
                     {{-- <x-bladewind.button radius="full" color="blue" onclick="window.location.href='/order'" class="flex justify-end mr-5 text-white h-10 w-1/4 self-end mx-auto mb-4">Checkout</x-bladewind.button> --}}
                 </div>
                 {{-- <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="window.location.href='/order'">Proceed to Checkout</button> --}}

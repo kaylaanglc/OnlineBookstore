@@ -6,6 +6,7 @@ use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Order;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -113,4 +114,39 @@ class CartController extends Controller
 
         return back()->with('success', 'Book removed from the cart successfully.');
     }
+
+    public function checkout()
+{
+    $user = auth()->user();
+    $currentOrder = $this->getCurrentOrder($user);
+
+    DB::transaction(function () use ($user, $currentOrder) {
+        // Assuming your order history model is named OrderHistory
+        $orderHistory = OrderHistory::create([
+            'user_id' => $user->id,
+            'total_price' => $currentOrder->items->sum(function ($item) {
+                return $item->quantity * $item->book->price;
+            }),
+            // Add any other necessary fields to copy from the current order to order history
+        ]);
+
+
+        // Copy items from the current order to order history
+        foreach ($currentOrder->items as $cartItem) {
+            $orderHistory->items()->create([
+                'book_title' => $cartItem->book->title,
+                'quantity' => $cartItem->quantity,
+                'total_price' => $cartItem->quantity * $cartItem->book->price,
+                'author' => $cartItem->book->author,
+                // Add any other necessary fields to copy
+            ]);
+        }
+
+        // Delete the current order
+        $currentOrder->delete();
+    });
+
+    return response()->json(['message' => 'Checkout successful'], 200);
+}
+
 }

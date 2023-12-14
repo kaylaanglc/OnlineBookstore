@@ -21,25 +21,43 @@
         {{-- Page Content --}}
         <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white flex justify-center mt-5">Order History</h2>
 
-        @if($orders->isEmpty())
-            <p>No orders found.</p>
-        @else
-            <ul>
-                @foreach($orders as $order)
-                    <li class="mb-4">
-                        <strong>Order ID:</strong> {{ $order->id }}<br>
-                        <!-- Display other order information as needed -->
-                        <!-- Example: -->
-                        <strong>Total Price:</strong> ${{ number_format($order->total_price, 2) }}<br>
-                        <strong>Order Date:</strong> {{ $order->created_at->format('Y-m-d H:i:s') }}
-                    </li>
+@if($orders->isEmpty())
+    <p>No orders found.</p>
+@else
+    <ul>
+        @foreach($orders as $order)
+            <li class="mb-4 ml-10 mt-2">
+                <strong>Order ID:</strong> {{ $order->id }}<br>
+
+                <!-- Display other order information as needed -->
+                <strong>Total Price:</strong> ${{ number_format($order->total_price, 2) }}<br>
+                <strong>Order Date:</strong> {{ $order->created_at->format('Y-m-d H:i:s') }}<br>
+
+                <!-- Additional information for each item in the order -->
+                @foreach($order->items as $item)
+                    <strong>Book Title:</strong> {{ $item->book_title }}<br>
+                    <strong>Quantity:</strong> {{ $item->quantity }}<br>
+                    <strong>Total Price:</strong> ${{ number_format($item->total_price, 2) }}<br>
+                    <strong>Author:</strong> {{ $item->author }}<br>
+                    <!-- Add any other necessary fields to display -->
                 @endforeach
-            </ul>
-        @endif
+
+            </li>
+        @endforeach
+    </ul>
+@endif
+
+<!-- Footer Section -->
+<footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4 bottom-0">
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">&copy; {{ date('Y') }} CCKK Online Bookstore. All rights reserved.</span>
+    </div>
+</footer>
     </div>
 
-    <!-- Add your scripts here if needed -->
+    {{-- <!-- Add your scripts here if needed -->
     <!-- For example: -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script> --}}
 </body>
 </html>
