@@ -2,36 +2,8 @@
 <x-bladewind.card reduce_padding="true" class="bg-white dark:bg-gray-800 cursor-pointer hover:scale-105 hover:transition hover:delay-100">
     <div class="flex items-center ">
         <div>
-            @php
-                // Assuming $book->id is the number associated with the title in the database
-                $extensions = ['jpeg', 'jpg', 'png'];
-                $titleNumber = $book->id ?? $index + 1;
-
-                $imageName = null;
-
-                // Loop through extensions to find a valid file
-                foreach ($extensions as $extension) {
-                    $candidateImage = "Title{$titleNumber}.{$extension}";
-                    $filePath = public_path("images/books/{$candidateImage}");
-
-                    if (file_exists($filePath)) {
-                        $imageName = $candidateImage;
-                        break; // Stop the loop if a valid file is found
-                    }
-                }
-
-                // Check if a valid file was found
-                if ($imageName) {
-                    $imageUrl = asset("images/books/$imageName");
-                } else {
-                    // Handle the case where no valid file was found
-                    $imageUrl = null; // Or provide a default image URL or handle accordingly
-                }
-            @endphp
-            {{-- <x-bladewind.avatar size="big" show_ring="false" image="{{ $imageUrl }}"/> --}}
-
             <div class="flex-1">
-                <img src="{{ $imageUrl }}" class="mb-4 rounded-md" style="height: 200px"> <!-- Adjust the width as needed -->
+                <img src={{ asset(str_replace(public_path(), '', $book->image)) }} class="mb-4 rounded-md" style="height: 200px"> <!-- Adjust the width as needed -->
             </div>
         </div>
         <div class="grow pl-2 pt-1">

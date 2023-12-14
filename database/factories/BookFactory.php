@@ -95,7 +95,7 @@ class BookFactory extends Factory
         $price = $this->faker->randomFloat(2, 7, 30); // Random price between 50 and 500.
         $isbn = $this->faker->unique()->isbn13;
         self::$counter++;
-        $imagePath = public_path("images/books/{$imageExamples[self::$counter - 1]}");
+        $imagePath = asset("images/books/{$imageExamples[self::$counter - 1]}");
 
         return [
             'title' => $titleExamples[self::$counter - 1],

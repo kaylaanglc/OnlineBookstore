@@ -51,7 +51,7 @@
                         </h2>
 
                         <p class="mt-1 text-sm text-gray-600">
-                            <img class="h-64 w-128" src="{{ Storage::url($book->image) }}" alt="{{ $book->title }}" srcset="">
+                            <img class="h-64 w-128" src="{{ asset(str_replace(public_path(), '', $book->image)) }}" alt="{{ $book->title }}" srcset="">
                         </p>
                     </div>
                     <div class="mb-6">

@@ -55,7 +55,7 @@
                                 "/>
                             </label>
                             <div class="shrink-0 my-2">
-                                <img id="image_preview" class="h-64 w-128 object-cover rounded-md" src="{{ isset($book) ? Storage::url($book->image) : '' }}" alt="Featured image preview" />
+                                <img id="image_preview" class="h-64 w-128 object-cover rounded-md" src="{{ isset($book) ? asset(str_replace(public_path(), '', $book->image)) : '' }}" alt="Featured image preview" />
                             </div>
                             <x-input-error class="mt-2" :messages="$errors->get('image')" />
                         </div>

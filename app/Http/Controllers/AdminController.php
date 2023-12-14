@@ -38,10 +38,28 @@ class AdminController extends Controller
     {
         $validated = $request->validated();
 
+        // if ($request->hasFile('image')) {
+        //      // put image in the public storage
+        //     $filePath = Storage::disk('public')->put('images/books', request()->file('image'));
+        //     $validated['image'] = $filePath;
+        // }
+
+        // if ($request->hasFile('image')) {
+        //     // put image in the public/images/books directory
+        //     $filePath = $request->file('image')->store('images/books', 'public');
+
+        //     // adjust the storage path in the database if needed
+        //     $validated['image'] = $filePath;
+        // }
+
         if ($request->hasFile('image')) {
-             // put image in the public storage
-            $filePath = Storage::disk('public')->put('images/books', request()->file('image'));
-            $validated['image'] = $filePath;
+            $file = $request->file('image');
+
+            // Move the file to the public/images/books directory with its original name
+            $file->storeAs(public_path('images/books'), $file->getClientOriginalName());
+
+            // Set the image path for database storage
+            $validated['image'] = $file;
         }
 
         // insert only requests that already validated in the StoreRequest

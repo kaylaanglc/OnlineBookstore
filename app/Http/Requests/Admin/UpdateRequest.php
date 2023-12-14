@@ -25,7 +25,7 @@ class UpdateRequest extends FormRequest
             'title' => 'required|string|min:3|max:250',
             'author' => 'required|string|min:3|max:250',
             'ISBN' => 'required|string|min:3|max:250',
-            'price' => ['required', 'numeric', Rule::between(0, 9999999.99)],
+            'price' => ['required', 'numeric'],
             'image' => 'nullable|image|max:1024|mimes:jpg,jpeg,png',
         ];
     }
